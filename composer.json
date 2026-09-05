@@ -1,0 +1,32 @@
+{
+    "name": "pricepilot/pricepilot",
+    "description": "Smart WooCommerce pricing and product operations dashboard",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3",
+        "phpoffice/phpspreadsheet": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "PricePilot\\": "includes/"
+        },
+        "files": [
+            "includes/Products/Filters/Filters/ProductFilters.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PricePilot\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "8.3.0"
+        }
+    }
+}

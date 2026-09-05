@@ -1,0 +1,264 @@
+.pricepilot-wrap {
+	margin-top: 12px;
+}
+
+.pricepilot-app {
+	direction: inherit;
+
+	.pricepilot-app-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 16px;
+		margin-bottom: 8px;
+		flex-wrap: wrap;
+	}
+
+	.pricepilot-language-switcher {
+		min-width: 160px;
+	}
+
+	.pricepilot-tabs {
+		margin-bottom: 16px;
+	}
+
+	.pricepilot-kpi-grid {
+		display: grid;
+		grid-template-columns: repeat( auto-fill, minmax( 180px, 1fr ) );
+		gap: 12px;
+		margin-bottom: 24px;
+	}
+
+	.pricepilot-kpi-card {
+		background: #fff;
+		border: 1px solid #dcdcde;
+		border-radius: 4px;
+		padding: 16px;
+
+		strong {
+			display: block;
+			font-size: 24px;
+			line-height: 1.2;
+		}
+
+		span {
+			color: #646970;
+			font-size: 13px;
+		}
+	}
+
+	.pricepilot-filters {
+		display: grid;
+		grid-template-columns: repeat( auto-fill, minmax( 160px, 1fr ) );
+		gap: 8px;
+		margin-bottom: 16px;
+	}
+
+	.pricepilot-currency-notice {
+		background: #f0f6fc;
+		border: 1px solid #c3d9ed;
+		border-radius: 4px;
+		color: #1d2327;
+		font-size: 13px;
+		line-height: 1.6;
+		margin: 0 0 16px;
+		padding: 10px 12px;
+	}
+
+	.pricepilot-bulk-panel {
+		background: #f6f7f7;
+		border: 1px solid #dcdcde;
+		border-radius: 4px;
+		padding: 16px;
+		margin-bottom: 16px;
+		display: grid;
+		grid-template-columns: repeat( auto-fill, minmax( 200px, 1fr ) );
+		gap: 12px;
+		align-items: end;
+
+		.components-base-control {
+			margin-bottom: 0;
+		}
+
+		&__actions {
+			grid-column: 1 / -1;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			flex-wrap: wrap;
+			padding-top: 4px;
+		}
+
+		&__selected {
+			color: #646970;
+			font-size: 13px;
+		}
+	}
+
+	.pricepilot-percent-input {
+		position: relative;
+		min-width: 160px;
+
+		&__suffix {
+			position: absolute;
+			inset-block-end: 10px;
+			inset-inline-end: 10px;
+			color: #646970;
+			font-size: 13px;
+			pointer-events: none;
+		}
+
+		input[type='number'] {
+			padding-inline-end: 28px;
+		}
+	}
+
+	.pricepilot-price-input {
+		position: relative;
+		min-width: 180px;
+
+		.components-base-control {
+			margin-bottom: 0;
+		}
+
+		&__currency {
+			position: absolute;
+			inset-block-end: 10px;
+			inset-inline-end: 10px;
+			color: #646970;
+			font-size: 13px;
+			pointer-events: none;
+		}
+
+		input[type='text'] {
+			padding-inline-end: 56px;
+		}
+	}
+
+	.pricepilot-table-wrap {
+		overflow-x: auto;
+	}
+
+	.pricepilot-preview-help {
+		color: #646970;
+		font-size: 13px;
+		margin: 0 0 12px;
+		max-width: 720px;
+		line-height: 1.7;
+		padding-inline-start: 20px;
+		list-style: disc;
+
+		li + li {
+			margin-top: 4px;
+		}
+	}
+
+	.pricepilot-preview-actions {
+		margin-top: 16px;
+		display: flex;
+		gap: 8px;
+		flex-wrap: wrap;
+	}
+
+	.pricepilot-preview-table {
+		th {
+			vertical-align: bottom;
+		}
+	}
+
+	.pricepilot-table-unit {
+		display: block;
+		font-size: 11px;
+		font-weight: 400;
+		color: #646970;
+		margin-top: 2px;
+	}
+
+	.pricepilot-muted {
+		color: #646970;
+	}
+
+	.pricepilot-sale-note {
+		display: block;
+		color: #996800;
+		font-size: 12px;
+		line-height: 1.5;
+		max-width: 180px;
+	}
+
+	.pricepilot-price-value {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 4px;
+		flex-wrap: wrap;
+	}
+
+	.pricepilot-price-value__unit {
+		color: #646970;
+		font-size: 12px;
+		font-weight: 400;
+	}
+
+	.pricepilot-price-change-vertical {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		min-width: 140px;
+
+		&__row {
+			display: flex;
+			flex-direction: column;
+			gap: 2px;
+		}
+
+		&__label {
+			font-size: 11px;
+			color: #646970;
+		}
+
+		&__old {
+			color: #646970;
+			text-decoration: line-through;
+		}
+
+		&__new {
+			color: #1d2327;
+		}
+	}
+
+	.pricepilot-price-change {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		flex-wrap: wrap;
+	}
+
+	.pricepilot-price-change__old {
+		color: #646970;
+		text-decoration: line-through;
+	}
+
+	.pricepilot-price-change__arrow {
+		color: #646970;
+	}
+
+	.pricepilot-badge {
+		display: inline-block;
+		padding: 2px 8px;
+		border-radius: 3px;
+		font-size: 11px;
+		background: #f0f0f1;
+	}
+
+	.pricepilot-badge-warning {
+		background: #fcf9e8;
+		color: #996800;
+	}
+
+	.pricepilot-toast-area {
+		position: fixed;
+		inset-block-end: 24px;
+		inset-inline-end: 24px;
+		z-index: 100000;
+	}
+}

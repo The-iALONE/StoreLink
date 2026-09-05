@@ -1,0 +1,18 @@
+# Copyright (C) 2026 PricePilot
+# English translations — source strings are already English.
+msgid ""
+msgstr ""
+"Project-Id-Version: PricePilot 1.0.0\n"
+"Report-Msgid-Bugs-To: https://pricepilot.ir\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: pricepilot\n"
+
+msgid "Language"
+msgstr "Language"
+
+msgid "Invalid language selected."
+msgstr "Invalid language selected."

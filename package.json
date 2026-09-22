@@ -1,26 +1,9 @@
 {
-    "name": "pricepilot",
-    "version": "1.0.0",
-    "description": "PricePilot admin UI",
+    "name": "storelink",
+    "version": "2.0.0",
+    "description": "StoreLink i18n helpers",
     "private": true,
     "scripts": {
-        "build": "wp-scripts build admin/src/index.js --output-path=admin/assets",
-        "start": "wp-scripts start admin/src/index.js --output-path=admin/assets",
-        "format": "wp-scripts format admin/src",
-        "lint:js": "wp-scripts lint-js admin/src",
-        "i18n:pot": "wp-i18n make-pot . languages/pricepilot.pot --domain=pricepilot --exclude=node_modules,vendor,tests",
-        "i18n:mo": "node tools/run-php.js tools/compile-i18n.php",
-        "i18n:json": "node tools/run-php.js tools/generate-i18n-json.php",
-        "i18n": "npm run build && npm run i18n:mo && npm run i18n:json"
-    },
-    "devDependencies": {
-        "@wordpress/i18n": "^5.26.0",
-        "@wordpress/scripts": "^30.0.0"
-    },
-    "dependencies": {
-        "@wordpress/api-fetch": "^7.0.0",
-        "@wordpress/components": "^28.0.0",
-        "@wordpress/element": "^6.0.0",
-        "@wordpress/icons": "^10.0.0"
+        "i18n:mo": "node tools/run-php.js tools/compile-i18n.php"
     }
 }

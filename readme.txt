@@ -1,50 +1,39 @@
-=== PricePilot ===
-Contributors: pricepilot
-Tags: woocommerce, pricing, bulk edit, products, import, export
+=== StoreLink ===
+Contributors: storelink
+Tags: woocommerce, telegram, bot, orders, messengers
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.3
-Stable tag: 1.0.0
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Smart WooCommerce pricing and product operations dashboard.
+Connect WooCommerce to Telegram first. Other messengers plug in through the same gateway interface later.
 
 == Description ==
 
-PricePilot helps store managers update WooCommerce product prices faster with bulk operations, advanced filters, preview/confirm workflow, undo, history logs, and Excel import/export.
+StoreLink connects a WooCommerce store to messenger bots. Telegram is the complete shop client in this version: browse and search products, cart quantities, checkout (WooCommerce order + payment URL), my orders, and store-ops for configured Telegram admin IDs (order list and status).
 
-**Languages:** Persian (default) and English — switch from the admin header.
-
-**V1 Features:**
-
-* Bulk price editor (+/- percent, fixed amount, set price, remove sale)
-* Advanced product filters
-* Preview before apply
-* Undo last bulk operation
-* Change history / audit log
-* Excel import / export
-* Dashboard with store KPIs
+Bale uses a thin Telegram-compatible adapter. Eitaa, Rubika, and Instagram wait until the Telegram bot is the source of truth.
 
 == Installation ==
 
-1. Upload the plugin folder to `/wp-content/plugins/PricePilot`
-2. Run `composer install` in the plugin directory
-3. Run `npm install && npm run build` for admin UI assets
-4. Activate through the 'Plugins' menu in WordPress
-5. Requires WooCommerce 8.0+ and PHP 8.3+
+1. Upload the plugin folder to `/wp-content/plugins/StoreLink`
+2. Activate through the Plugins menu (requires WooCommerce 8.0+ and PHP 8.3+)
+3. Open WooCommerce → StoreLink, paste the Telegram bot token, save, then Connect webhook
 
 == Frequently Asked Questions ==
 
-= Does it support variable products? =
+= Does payment happen inside Telegram? =
 
-Bulk pricing applies to simple products and variations. Variable parent products are skipped with a clear message.
+No. The bot creates a pending WooCommerce order and sends the payment URL.
 
-= Can I undo bulk changes? =
+= Can I add another messenger? =
 
-Yes. The last bulk operation can be undone from the Dashboard or History tab.
+Implement `StoreLink\Messengers\GatewayInterface` and register it on `storelink_register_gateways`.
 
 == Changelog ==
 
-= 1.0.0 =
-* Initial V1 release
+= 2.0.0 =
+* Replace PricePilot pricing with StoreLink messenger architecture
+* Telegram catalog, cart, and WooCommerce checkout

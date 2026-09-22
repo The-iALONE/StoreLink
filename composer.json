@@ -1,26 +1,22 @@
 {
-    "name": "pricepilot/pricepilot",
-    "description": "Smart WooCommerce pricing and product operations dashboard",
+    "name": "storelink/storelink",
+    "description": "Connect WooCommerce to messengers such as Telegram",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
     "require": {
-        "php": ">=8.3",
-        "phpoffice/phpspreadsheet": "^2.0"
+        "php": ">=8.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.6"
     },
     "autoload": {
         "psr-4": {
-            "PricePilot\\": "includes/"
-        },
-        "files": [
-            "includes/Products/Filters/Filters/ProductFilters.php"
-        ]
+            "StoreLink\\": "includes/"
+        }
     },
     "autoload-dev": {
         "psr-4": {
-            "PricePilot\\Tests\\": "tests/"
+            "StoreLink\\Tests\\": "tests/"
         }
     },
     "config": {

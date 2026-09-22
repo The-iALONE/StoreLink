@@ -1,47 +1,37 @@
 <?php
 /**
- * Admin menu registration.
+ * Admin menu.
  *
- * @package PricePilot
+ * @package StoreLink
  */
 
-namespace PricePilot\Admin;
+namespace StoreLink\Admin;
 
-use PricePilot\Core\Plugin;
+use StoreLink\Core\Plugin;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Registers admin menu pages.
+ * WooCommerce submenu.
  */
 class Menu {
 
-	/**
-	 * Register WooCommerce submenu.
-	 *
-	 * @return void
-	 */
 	public function register_menu(): void {
 		add_submenu_page(
 			'woocommerce',
-			__( 'PricePilot', 'pricepilot' ),
-			__( 'PricePilot', 'pricepilot' ),
+			__( 'StoreLink', 'storelink' ),
+			__( 'StoreLink', 'storelink' ),
 			Plugin::capability(),
-			'pricepilot',
+			'storelink',
 			array( $this, 'render_page' )
 		);
 	}
 
-	/**
-	 * Render admin page mount point.
-	 *
-	 * @return void
-	 */
 	public function render_page(): void {
 		if ( ! current_user_can( Plugin::capability() ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page.', 'pricepilot' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page.', 'storelink' ) );
 		}
 
-		include PRICEPILOT_PLUGIN_DIR . 'templates/admin-dashboard.php';
+		include STORELINK_PLUGIN_DIR . 'templates/admin-settings.php';
 	}
 }

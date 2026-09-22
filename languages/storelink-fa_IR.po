@@ -1,0 +1,249 @@
+# Copyright (C) 2026 StoreLink
+msgid ""
+msgstr ""
+"Project-Id-Version: StoreLink 2.0.0\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: storelink\n"
+
+msgid "StoreLink"
+msgstr "استورلینک"
+
+msgid "Connect WooCommerce to Telegram and Bale. Other messengers can be added through the gateway interface."
+msgstr "ووکامرس را به تلگرام و بله وصل کنید. پیام‌رسان‌های دیگر از طریق اینترفیس گیت‌وی اضافه می‌شوند."
+
+msgid "Bale"
+msgstr "بله"
+
+msgid "Enable %s"
+msgstr "فعال‌سازی %s"
+
+msgid "Accept %s bot updates"
+msgstr "دریافت به‌روزرسانی‌های ربات %s"
+
+msgid "Webhook registered."
+msgstr "وب‌هوک ثبت شد."
+
+msgid "Could not register the webhook. Check the bot token."
+msgstr "ثبت وب‌هوک ممکن نشد. توکن ربات را بررسی کنید."
+
+msgid "Could not register the webhook."
+msgstr "ثبت وب‌هوک ممکن نشد."
+
+msgid "Save the bot token first, then connect the webhook."
+msgstr "ابتدا توکن ربات را ذخیره کنید، بعد وب‌هوک را وصل کنید."
+
+msgid "Telegram and Bale only accept a public HTTPS webhook. Local http:// URLs are rejected. Use a tunnel such as ngrok and set the public webhook base URL."
+msgstr "تلگرام و بله فقط وب‌هوک HTTPS عمومی می‌پذیرند. آدرس‌های http:// لوکال رد می‌شوند. از تونل مثل ngrok استفاده کنید و آدرس پایه وب‌هوک عمومی را وارد کنید."
+
+msgid "The messenger API rejected the request."
+msgstr "API پیام‌رسان درخواست را رد کرد."
+
+msgid "Public webhook base URL"
+msgstr "آدرس پایه وب‌هوک عمومی"
+
+msgid "Required on localhost. Paste your public HTTPS origin (ngrok, Cloudflare Tunnel). Leave empty if this WordPress site is already public HTTPS."
+msgstr "روی لوکال‌هاست لازم است. آدرس HTTPS عمومی (ngrok یا Cloudflare Tunnel) را بگذارید. اگر خود سایت از قبل HTTPS عمومی است خالی بگذارید."
+
+msgid "Connect %s webhook"
+msgstr "اتصال وب‌هوک %s"
+
+msgid "Enable Telegram"
+msgstr "فعال‌سازی تلگرام"
+
+msgid "Accept Telegram bot updates"
+msgstr "دریافت به‌روزرسانی‌های ربات تلگرام"
+
+msgid "Bot token"
+msgstr "توکن ربات"
+
+msgid "Token is stored encrypted. Leave the masked value unchanged to keep the current token."
+msgstr "توکن رمزنگاری می‌شود. برای حفظ توکن فعلی مقدار ماسک‌شده را تغییر ندهید."
+
+msgid "Bot username"
+msgstr "نام کاربری ربات"
+
+msgid "Webhook URL"
+msgstr "آدرس وب‌هوک"
+
+msgid "Status"
+msgstr "وضعیت"
+
+msgid "Save settings"
+msgstr "ذخیره تنظیمات"
+
+msgid "Settings saved."
+msgstr "تنظیمات ذخیره شد."
+
+msgid "Connect webhook"
+msgstr "اتصال وب‌هوک"
+
+msgid "Webhook connected."
+msgstr "وب‌هوک متصل است."
+
+msgid "Webhook is not connected."
+msgstr "وب‌هوک متصل نیست."
+
+msgid "Telegram webhook registered."
+msgstr "وب‌هوک تلگرام ثبت شد."
+
+msgid "Could not register the Telegram webhook. Check the bot token."
+msgstr "ثبت وب‌هوک تلگرام ممکن نشد. توکن ربات را بررسی کنید."
+
+msgid "Welcome to the store. Choose an option:"
+msgstr "به فروشگاه خوش آمدید. یک گزینه را انتخاب کنید:"
+
+msgid "Products"
+msgstr "محصولات"
+
+msgid "Cart"
+msgstr "سبد خرید"
+
+msgid "No products found."
+msgstr "محصولی یافت نشد."
+
+msgid "Previous"
+msgstr "قبلی"
+
+msgid "Next"
+msgstr "بعدی"
+
+msgid "Products (page %1$d of %2$d)"
+msgstr "محصولات (صفحه %1$d از %2$d)"
+
+msgid "Product not found."
+msgstr "محصول یافت نشد."
+
+msgid "In stock"
+msgstr "موجود"
+
+msgid "Out of stock"
+msgstr "ناموجود"
+
+msgid "Add to cart"
+msgstr "افزودن به سبد"
+
+msgid "This product cannot be purchased."
+msgstr "این محصول قابل خرید نیست."
+
+msgid "Your cart is empty."
+msgstr "سبد خرید خالی است."
+
+msgid "Remove %s"
+msgstr "حذف %s"
+
+msgid "Checkout"
+msgstr "تسویه"
+
+msgid "Please send your full name."
+msgstr "نام کامل خود را بفرستید."
+
+msgid "Please send your phone number."
+msgstr "شماره تلفن خود را بفرستید."
+
+msgid "Please send your delivery address."
+msgstr "آدرس تحویل را بفرستید."
+
+msgid "Confirm your order:"
+msgstr "سفارش را تأیید کنید:"
+
+msgid "Place order"
+msgstr "ثبت سفارش"
+
+msgid "Main menu"
+msgstr "منوی اصلی"
+
+msgid "Pay now"
+msgstr "پرداخت"
+
+msgid "Order #%1$s created. Total: %2$s"
+msgstr "سفارش #%1$s ثبت شد. مبلغ: %2$s"
+
+msgid "Not enough stock for this order."
+msgstr "موجودی برای این سفارش کافی نیست."
+
+msgid "Product unavailable: %s"
+msgstr "محصول در دسترس نیست: %s"
+
+msgid "You do not have permission to access this page."
+msgstr "اجازه دسترسی به این صفحه را ندارید."
+
+msgid "StoreLink requires WooCommerce to be installed and active."
+msgstr "استورلینک به ووکامرس فعال نیاز دارد."
+
+msgid "Telegram"
+msgstr "تلگرام"
+
+msgid "Telegram outbound proxy"
+msgstr "پروکسی خروجی تلگرام"
+
+msgid "Optional. PHP calls to api.telegram.org (setWebhook, replies). Example: socks5://127.0.0.1:10808 for V2Ray. Incoming webhooks still need public HTTPS."
+msgstr "اختیاری. تماس PHP با api.telegram.org (ثبت وب‌هوک و پاسخ‌ها). مثال برای V2Ray: socks5://127.0.0.1:10808. وب‌هوک ورودی همچنان HTTPS عمومی می‌خواهد."
+
+msgid "Telegram admin user IDs"
+msgstr "شناسه کاربری ادمین تلگرام"
+
+msgid "Numeric Telegram user IDs (comma-separated). Those users see Orders in the bot. They must send /start once so order alerts can be delivered."
+msgstr "شناسه‌های عددی تلگرام (با کاما). این کاربران منوی سفارش‌ها را می‌بینند. یک‌بار /start بزنند تا هشدار سفارش برسد."
+
+msgid "Bale stays on the Telegram-compatible adapter. Finish the Telegram shop bot before adding more Bale-specific features."
+msgstr "بله فعلاً فقط آداپتور سازگار با تلگرام است. تا بات فروشگاه تلگرام کامل نشود فیچر اختصاصی بله اضافه نمی‌شود."
+
+msgid "My orders"
+msgstr "سفارش‌های من"
+
+msgid "Search"
+msgstr "جستجو"
+
+msgid "Orders"
+msgstr "سفارش‌ها"
+
+msgid "Send a product name to search."
+msgstr "نام محصول را برای جستجو بفرستید."
+
+msgid "Share phone number"
+msgstr "ارسال شماره تلفن"
+
+msgid "Total: %s"
+msgstr "جمع: %s"
+
+msgid "Empty cart"
+msgstr "خالی کردن سبد"
+
+msgid "You have no orders yet."
+msgstr "هنوز سفارشی ندارید."
+
+msgid "Your orders:"
+msgstr "سفارش‌های شما:"
+
+msgid "You are not allowed to manage orders."
+msgstr "اجازه مدیریت سفارش‌ها را ندارید."
+
+msgid "No orders found."
+msgstr "سفارشی یافت نشد."
+
+msgid "Store orders:"
+msgstr "سفارش‌های فروشگاه:"
+
+msgid "Order not found."
+msgstr "سفارش پیدا نشد."
+
+msgid "Processing"
+msgstr "در حال انجام"
+
+msgid "Completed"
+msgstr "تکمیل‌شده"
+
+msgid "Cancelled"
+msgstr "لغوشده"
+
+msgid "This status cannot be set from the bot."
+msgstr "این وضعیت از ربات قابل تنظیم نیست."
+
+msgid "New order"
+msgstr "سفارش جدید"
+
+msgid "Order details"
+msgstr "جزئیات سفارش"

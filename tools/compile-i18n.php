@@ -4,7 +4,7 @@
  *
  * Usage: php tools/compile-i18n.php
  *
- * @package PricePilot
+ * @package StoreLink
  */
 
 if ( ! function_exists( 'array_last' ) ) {

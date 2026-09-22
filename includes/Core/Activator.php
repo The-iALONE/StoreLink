@@ -2,12 +2,12 @@
 /**
  * Plugin activation.
  *
- * @package PricePilot
+ * @package StoreLink
  */
 
-namespace PricePilot\Core;
+namespace StoreLink\Core;
 
-use PricePilot\Database\Migrator;
+use StoreLink\Database\Migrator;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -16,19 +16,14 @@ defined( 'ABSPATH' ) || exit;
  */
 class Activator {
 
-	/**
-	 * Run on plugin activation.
-	 *
-	 * @return void
-	 */
 	public static function activate(): void {
 		if ( ! Requirements::check() ) {
-			deactivate_plugins( plugin_basename( PRICEPILOT_PLUGIN_FILE ) );
+			deactivate_plugins( plugin_basename( STORELINK_PLUGIN_FILE ) );
 			wp_die(
 				esc_html(
 					sprintf(
 						/* translators: %s: required PHP version */
-						__( 'PricePilot requires PHP %s or higher.', 'pricepilot' ),
+						__( 'StoreLink requires PHP %s or higher.', 'storelink' ),
 						Requirements::MIN_PHP
 					)
 				)

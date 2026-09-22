@@ -2,10 +2,10 @@
 /**
  * Plugin deactivation.
  *
- * @package PricePilot
+ * @package StoreLink
  */
 
-namespace PricePilot\Core;
+namespace StoreLink\Core;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -14,13 +14,7 @@ defined( 'ABSPATH' ) || exit;
  */
 class Deactivator {
 
-	/**
-	 * Run on plugin deactivation.
-	 *
-	 * @return void
-	 */
 	public static function deactivate(): void {
-		delete_transient( 'pricepilot_dashboard_stats' );
 		flush_rewrite_rules();
 	}
 }

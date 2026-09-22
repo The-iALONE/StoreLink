@@ -2,36 +2,25 @@
 /**
  * Security helpers.
  *
- * @package PricePilot
+ * @package StoreLink
  */
 
-namespace PricePilot\Security;
+namespace StoreLink\Security;
 
-use PricePilot\Core\Plugin;
+use StoreLink\Core\Plugin;
 use WP_REST_Request;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Permission and validation helpers.
+ * Permission helpers.
  */
 class Permissions {
 
-	/**
-	 * REST permission callback.
-	 *
-	 * @return bool
-	 */
 	public static function can_manage(): bool {
 		return current_user_can( Plugin::capability() );
 	}
 
-	/**
-	 * Verify REST nonce from request.
-	 *
-	 * @param WP_REST_Request $request Request object.
-	 * @return bool
-	 */
 	public static function verify_nonce( WP_REST_Request $request ): bool {
 		$nonce = $request->get_header( 'X-WP-Nonce' );
 
@@ -42,12 +31,6 @@ class Permissions {
 		return (bool) wp_verify_nonce( sanitize_text_field( (string) $nonce ), 'wp_rest' );
 	}
 
-	/**
-	 * Combined permission check for REST endpoints.
-	 *
-	 * @param WP_REST_Request $request Request object.
-	 * @return bool
-	 */
 	public static function rest_permission( WP_REST_Request $request ): bool {
 		return self::can_manage() && self::verify_nonce( $request );
 	}

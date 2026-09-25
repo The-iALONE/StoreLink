@@ -7,10 +7,16 @@
 - [wc_create_order()](https://woocommerce.github.io/code-reference/functions/wc_create_order.html)
 - [HPOS / custom order tables](https://developer.woocommerce.com/docs/hpos/)
 - [Telegram Bot API](https://core.telegram.org/bots/api)
+- Outbound relay sample: `tools/cloudflare-telegram-relay.js` (Cloudflare Worker → `api.telegram.org`)
 - [Telegram KeyboardButton request_contact](https://core.telegram.org/bots/api#keyboardbutton)
 - [Telegram setWebhook secret_token](https://core.telegram.org/bots/api#setwebhook)
 - [WC_Order::update_status()](https://woocommerce.github.io/code-reference/classes/WC-Order.html#method_update_status)
 - [wc_get_orders()](https://github.com/woocommerce/woocommerce/wiki/wc_get_orders-and-WC_Order_Query)
 - [Bale Bot API](https://docs.bale.ai/) (`https://tapi.bale.ai`) — clone after Telegram shop is complete
-- Later: Instagram Graph API
+- Market (comment gaps, not to clone wholesale): [Boti](https://www.rtl-theme.com/boti-wordpress-plugin/), [Woojox](https://www.zhaket.com/web/wojoox-plugin), [Balegram](https://www.rtl-theme.com/balegram-plugin-wordpress/)
+- Later: Instagram Graph API, Rubika, Eitaa, Soroush Plus
+- M22 tracking pages: [Iran Post tracking](https://tracking.post.ir), [Tipax tracking](https://tipaxco.com/tracking). No scrape. Extra carriers: `storelink_register_tracking_providers`.
+- M24: WooCommerce → StoreLink notification checkboxes. Defaults match M14/M18.
+- M25: channel caption fields + Action Scheduler bulk publish (`as_enqueue_async_action`, group `storelink`). No AI.
+- M26: StoreLink settings tabs (General / Telegram / Bale). One location per setting.
 - [WordPress Requirements (PHP 8.3+)](https://wordpress.org/about/requirements/)

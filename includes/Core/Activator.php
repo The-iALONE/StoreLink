@@ -31,6 +31,7 @@ class Activator {
 		}
 
 		Migrator::migrate();
+		\StoreLink\Tracking\TrackingService::schedule_cron();
 		flush_rewrite_rules();
 	}
 }

@@ -25,3 +25,5 @@ WordPress is in a subdirectory: `http://localhost/testlab.ir` — not the Apache
 `https://<ngrok>/testlab.ir/wp-json/storelink/v1/webhooks/telegram`
 
 Paste only the ngrok origin into Public webhook base URL. StoreLink appends `/testlab.ir` from the site URL. After changing ngrok, click Connect Telegram webhook again.
+
+On this PC, V2Ray SOCKS (`socks5://127.0.0.1:10808`) can be used for PHP → Telegram. On Iranian shared hosting, use Telegram API relay URL + `tools/cloudflare-telegram-relay.js` instead. Then click Test Telegram getMe.

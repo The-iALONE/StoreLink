@@ -15,6 +15,7 @@ defined( 'ABSPATH' ) || exit;
 class Deactivator {
 
 	public static function deactivate(): void {
+		\StoreLink\Tracking\TrackingService::clear_cron();
 		flush_rewrite_rules();
 	}
 }

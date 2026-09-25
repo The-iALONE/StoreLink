@@ -33,3 +33,10 @@ $wpdb->query( "DROP TABLE IF EXISTS {$legacy_ops}" );
 delete_option( 'storelink_db_version' );
 delete_option( 'storelink_settings' );
 delete_option( 'pricepilot_db_version' );
+
+delete_post_meta_by_key( '_storelink_channel_posts' );
+wp_clear_scheduled_hook( 'storelink_refresh_tracking' );
+
+if ( function_exists( 'as_unschedule_all_actions' ) ) {
+	as_unschedule_all_actions( 'storelink_channel_publish_product', array(), 'storelink' );
+}

@@ -131,6 +131,9 @@ msgstr "این محصول قابل خرید نیست."
 msgid "Your cart is empty."
 msgstr "سبد خرید خالی است."
 
+msgid "Remove"
+msgstr "حذف"
+
 msgid "Remove %s"
 msgstr "حذف %s"
 
@@ -148,6 +151,9 @@ msgstr "آدرس تحویل را بفرستید."
 
 msgid "Confirm your order:"
 msgstr "سفارش را تأیید کنید:"
+
+msgid "Grand total: %s"
+msgstr "قیمت کل: %s"
 
 msgid "Place order"
 msgstr "ثبت سفارش"
@@ -218,6 +224,21 @@ msgstr "هنوز سفارشی ندارید."
 msgid "Your orders:"
 msgstr "سفارش‌های شما:"
 
+msgid "Order #%s"
+msgstr "سفارش #%s"
+
+msgid "View on site"
+msgstr "مشاهده در سایت"
+
+msgid "All"
+msgstr "همه"
+
+msgid "%d items"
+msgstr "%d عدد"
+
+msgid "Open in WooCommerce"
+msgstr "باز کردن در ووکامرس"
+
 msgid "You are not allowed to manage orders."
 msgstr "اجازه مدیریت سفارش‌ها را ندارید."
 
@@ -230,6 +251,18 @@ msgstr "سفارش‌های فروشگاه:"
 msgid "Order not found."
 msgstr "سفارش پیدا نشد."
 
+msgid "Pending payment"
+msgstr "در انتظار پرداخت"
+
+msgid "On hold"
+msgstr "در انتظار بررسی"
+
+msgid "Failed"
+msgstr "ناموفق"
+
+msgid "Refunded"
+msgstr "بازپرداخت شده"
+
 msgid "Processing"
 msgstr "در حال انجام"
 
@@ -239,6 +272,12 @@ msgstr "تکمیل‌شده"
 msgid "Cancelled"
 msgstr "لغوشده"
 
+msgid "Order #%s is now: %s"
+msgstr "وضعیت سفارش #%s الان: %s"
+
+msgid "Order #%s status: %s"
+msgstr "سفارش #%s: %s"
+
 msgid "This status cannot be set from the bot."
 msgstr "این وضعیت از ربات قابل تنظیم نیست."
 
@@ -247,3 +286,429 @@ msgstr "سفارش جدید"
 
 msgid "Order details"
 msgstr "جزئیات سفارش"
+
+msgid "Telegram API relay URL"
+msgstr "آدرس رله API تلگرام"
+
+msgid "For Iranian shared hosting: PHP cannot reach api.telegram.org and cannot use a local SOCKS proxy. Deploy the sample Cloudflare Worker in tools/cloudflare-telegram-relay.js and paste its HTTPS origin here. This replaces api.telegram.org for outbound calls only. Incoming webhooks still need a public HTTPS site URL."
+msgstr "برای هاست اشتراکی ایران: PHP به api.telegram.org نمی‌رسد و SOCKS لوکال هم ندارد. Worker نمونه در tools/cloudflare-telegram-relay.js را دیپلوی کنید و آدرس HTTPS آن را اینجا بگذارید. فقط تماس خروجی جایگزین api.telegram.org می‌شود. وب‌هوک ورودی همچنان HTTPS عمومی سایت است."
+
+msgid "Telegram API test"
+msgstr "تست API تلگرام"
+
+msgid "Test Telegram getMe"
+msgstr "تست getMe تلگرام"
+
+msgid "Save the bot token first, then test the connection."
+msgstr "ابتدا توکن ربات را ذخیره کنید، بعد اتصال را تست کنید."
+
+msgid "Telegram API is reachable."
+msgstr "API تلگرام در دسترس است."
+
+msgid "Telegram gateway is not registered."
+msgstr "گیت‌وی تلگرام ثبت نشده است."
+
+msgid "Choose %s:"
+msgstr "%s را انتخاب کنید:"
+
+msgid "This combination is not available."
+msgstr "این ترکیب موجود نیست."
+
+msgid "Choose product options before checkout."
+msgstr "قبل از تسویه گزینه‌های محصول را انتخاب کنید."
+
+msgid "Please send your city."
+msgstr "شهر را بفرستید."
+
+msgid "Choose your province:"
+msgstr "استان را انتخاب کنید:"
+
+msgid "Choose a shipping method:"
+msgstr "روش ارسال را انتخاب کنید:"
+
+msgid "Send a WooCommerce coupon code, or skip."
+msgstr "کد تخفیف ووکامرس را بفرستید یا رد شوید."
+
+msgid "Skip coupon"
+msgstr "بدون کوپن"
+
+msgid "Coupon: %s"
+msgstr "کوپن: %s"
+
+msgid "Enter a coupon code or skip."
+msgstr "کد کوپن را بفرستید یا رد شوید."
+
+msgid "This coupon is not valid."
+msgstr "این کوپن معتبر نیست."
+
+msgid "Download"
+msgstr "دانلود"
+
+msgid "Downloadable file after payment."
+msgstr "فایل دانلودی بعد از پرداخت."
+
+msgid "Free download after checkout."
+msgstr "دانلود رایگان؛ پرداخت نمی‌خواهد."
+
+msgid "Download: %s"
+msgstr "دانلود: %s"
+
+msgid "Your downloads:"
+msgstr "دانلودهای شما:"
+
+msgid "Bale admin user IDs"
+msgstr "شناسه ادمین بله"
+
+msgid "Numeric Bale user IDs. Same shop and admin order contract as Telegram. Send /start in the Bale bot once for alerts."
+msgstr "شناسه عددی کاربر بله. همان فروشگاه و مدیریت سفارش تلگرام. یک‌بار در ربات بله /start بزنید تا اعلان برسد."
+
+msgid "Telegram channel"
+msgstr "کانال تلگرام"
+
+msgid "Add the bot as admin. Price/stock changes post or edit using the caption fields on the General tab. No AI."
+msgstr "ربات را ادمین کانال کنید. تغییر قیمت/موجودی با فیلدهای کپشن در تب عمومی پست یا ویرایش می‌شود. بدون هوش مصنوعی."
+
+msgid "Bale channel"
+msgstr "کانال بله"
+
+msgid "Optional. Same caption as Telegram if the Bale bot can post there."
+msgstr "اختیاری. همان کپشن تلگرام اگر ربات بله بتواند در کانال بنویسد."
+
+msgid "Bale uses the same shop as Telegram (catalog, cart, my orders, admin). Enable the bot, save the token, connect the webhook, then /start."
+msgstr "بله همان فروشگاه تلگرام را دارد (کاتالوگ، سبد، سفارش‌های من، ادمین). ربات را فعال کنید، توکن را ذخیره کنید، وب‌هوک را وصل کنید، بعد /start."
+
+msgid "Stock: %s"
+msgstr "موجودی: %s"
+
+msgid "To manage orders and stock, paste this ID in WooCommerce → StoreLink admin user IDs, save, then send /start again."
+msgstr "برای مدیریت سفارش و موجودی، این شناسه را در ووکامرس → StoreLink در فیلد ادمین بگذارید، ذخیره کنید، بعد دوباره /start بزنید."
+
+msgid "Send file"
+msgstr "ارسال فایل"
+
+msgid "Download sent to the customer."
+msgstr "فایل برای مشتری ارسال شد."
+
+msgid "Free downloadable products"
+msgstr "کالای دانلودی رایگان"
+
+msgid "If the cart is only downloadable products with price 0, skip name, address, shipping and payment. Complete the WooCommerce order and send download links in the bot."
+msgstr "اگر سبد فقط کالای دانلودی با قیمت صفر باشد، نام، آدرس، ارسال و پرداخت رد می‌شود. سفارش ووکامرس تکمیل می‌شود و لینک دانلود در ربات می‌آید."
+
+msgid "Local courier"
+msgstr "پیک محلی"
+
+msgid "Iran Post"
+msgstr "پست ایران"
+
+msgid "Tipax"
+msgstr "تیپاکس"
+
+msgid "Carrier: %s"
+msgstr "حامل: %s"
+
+msgid "Tracking number: %s"
+msgstr "شماره رهگیری: %s"
+
+msgid "Shipment: %s"
+msgstr "ارسال: %s"
+
+msgid "Enter a tracking number."
+msgstr "شماره رهگیری را وارد کنید."
+
+msgid "Unknown shipping provider."
+msgstr "حامل ارسال ناشناخته است."
+
+msgid "Recorded"
+msgstr "ثبت شد"
+
+msgid "StoreLink tracking"
+msgstr "رهگیری استورلینک"
+
+msgid "Carrier"
+msgstr "حامل"
+
+msgid "Tracking number"
+msgstr "شماره رهگیری"
+
+msgid "Open tracking page"
+msgstr "باز کردن صفحه رهگیری"
+
+msgid "Tracking history"
+msgstr "تاریخچه رهگیری"
+
+msgid "Order #%s tracking update"
+msgstr "به‌روزرسانی رهگیری سفارش #%s"
+
+msgid "Track shipment"
+msgstr "پیگیری مرسوله"
+
+msgid "Set tracking"
+msgstr "ثبت رهگیری"
+
+msgid "Choose a shipping carrier."
+msgstr "حامل ارسال را انتخاب کنید."
+
+msgid "Send the tracking number."
+msgstr "شماره رهگیری را بفرستید."
+
+msgid "Shipment tracking"
+msgstr "رهگیری مرسوله"
+
+msgid "Only orders with a physical item. Set carrier and number on the WooCommerce order or from the Telegram admin bot. Iran Post and Tipax open their official pages. Local courier has no tracking website. Carrier sites are not scraped. A separate Telegram message when tracking is saved needs the customer tracking checkbox under Bot notifications. My orders and status messages can still show the number."
+msgstr "فقط سفارش با کالای فیزیکی. حامل و شماره را روی سفارش ووکامرس یا از ربات ادمین تلگرام بگذارید. پست ایران و تیپاکس صفحه رسمی را باز می‌کنند. پیک محلی سایت رهگیری ندارد. از سایت حامل چیزی خوانده نمی‌شود. پیام جدا در تلگرام هنگام ذخیره فقط اگر تیک «پیام وقتی رهگیری ذخیره شود» در اعلان‌های ربات روشن باشد. در سفارش‌های من و پیام تغییر وضعیت، شماره همچنان می‌تواند دیده شود."
+
+msgid "This order has no physical shipment."
+msgstr "این سفارش ارسال فیزیکی ندارد."
+
+msgid "Virtual and downloadable"
+msgstr "مجازی و دانلودی"
+
+msgid "Virtual"
+msgstr "مجازی"
+
+msgid "Physical, with a downloadable file"
+msgstr "فیزیکی، با فایل دانلودی"
+
+msgid "Physical"
+msgstr "فیزیکی"
+
+msgid "Set stock"
+msgstr "تنظیم موجودی"
+
+msgid "Send the stock quantity as a number."
+msgstr "موجودی را به صورت عدد بفرستید."
+
+msgid "Send the quantity for %s as a number."
+msgstr "تعداد %s را به صورت عدد بفرستید."
+
+msgid "Send the quantity as a number."
+msgstr "تعداد را به صورت عدد بفرستید."
+
+msgid "Maximum stock: %s"
+msgstr "حداکثر موجودی: %s"
+
+msgid "Categories"
+msgstr "دسته‌ها"
+
+msgid "All products"
+msgstr "همه محصولات"
+
+msgid "No categories found."
+msgstr "دسته‌ای یافت نشد."
+
+msgid "Choose a category:"
+msgstr "یک دسته انتخاب کنید:"
+
+msgid "%1$s (page %2$d of %3$d)"
+msgstr "%1$s (صفحه %2$d از %3$d)"
+
+msgid "Bot categories"
+msgstr "دسته‌های ربات"
+
+msgid "Show the WooCommerce default category (Uncategorized) in the bot category menu. Products stay in the full catalog and search either way. This does not change the store website."
+msgstr "دسته پیش‌فرض ووکامرس (دسته‌بندی‌نشده) را در منوی دسته‌های ربات نشان بده. کالاها در هر دو حالت در فهرست همه محصولات و جستجو می‌مانند. وب‌سایت فروشگاه عوض نمی‌شود."
+
+msgid "Bot notifications"
+msgstr "اعلان‌های ربات"
+
+msgid "Store: new order (default on)"
+msgstr "فروشگاه: سفارش جدید (پیش‌فرض روشن)"
+
+msgid "Store: order status changed (default off)"
+msgstr "فروشگاه: تغییر وضعیت سفارش (پیش‌فرض خاموش)"
+
+msgid "Customer: order status changed (default on)"
+msgstr "مشتری: تغییر وضعیت سفارش (پیش‌فرض روشن)"
+
+msgid "Customer: separate message when refunded (default off)"
+msgstr "مشتری: پیام جدا وقتی مسترد شود (پیش‌فرض خاموش)"
+
+msgid "Customer: separate message when a physical order is completed (default off)"
+msgstr "مشتری: پیام جدا وقتی سفارش فیزیکی تکمیل شود (پیش‌فرض خاموش)"
+
+msgid "Customer: message when tracking is saved (default off)"
+msgstr "مشتری: پیام وقتی رهگیری ذخیره شود (پیش‌فرض خاموش)"
+
+msgid "Order #%s was refunded."
+msgstr "سفارش #%s مسترد شد."
+
+msgid "Order #%s was shipped."
+msgstr "سفارش #%s ارسال شد."
+
+msgid "Order status changed"
+msgstr "وضعیت سفارش عوض شد"
+
+msgid "Queued %d product(s) for the channel. WooCommerce Action Scheduler will post or edit them."
+msgstr "%d محصول در صف کانال قرار گرفت. Action Scheduler ووکامرس پست یا ویرایش می‌کند."
+
+msgid "Channel caption"
+msgstr "کپشن کانال"
+
+msgid "Name (default on)"
+msgstr "نام (پیش‌فرض روشن)"
+
+msgid "Price (default on)"
+msgstr "قیمت (پیش‌فرض روشن)"
+
+msgid "Stock (default on)"
+msgstr "موجودی (پیش‌فرض روشن)"
+
+msgid "Product link (default on)"
+msgstr "لینک محصول (پیش‌فرض روشن)"
+
+msgid "Short description (default off)"
+msgstr "توضیح کوتاه (پیش‌فرض خاموش)"
+
+msgid "Publish to channel"
+msgstr "انتشار در کانال"
+
+msgid "One category"
+msgstr "یک دسته"
+
+msgid "— None —"
+msgstr "— هیچ —"
+
+msgid "Product IDs (published simple or variable products, comma or space separated)"
+msgstr "شناسه محصول (ساده یا متغیر منتشرشده، با ویرگول یا فاصله)"
+
+msgid "Queue publish"
+msgstr "صف انتشار"
+
+msgid "Saves settings, then queues one job per product. Existing channel posts are edited. A new post is only sent when none is stored or the message is gone."
+msgstr "تنظیمات ذخیره می‌شود، بعد برای هر محصول یک کار در صف می‌رود. پست موجود ویرایش می‌شود. پست جدید فقط وقتی است که شناسه‌ای ذخیره نشده یا پیام در کانال نیست."
+
+msgid "General"
+msgstr "عمومی"
+
+msgid "Connection"
+msgstr "اتصال"
+
+msgid "Bot shop"
+msgstr "فروشگاه ربات"
+
+msgid "Notifications"
+msgstr "اعلان‌ها"
+
+msgid "Channel"
+msgstr "کانال"
+
+msgid "Required on localhost."
+msgstr "روی لوکال‌هاست لازم است."
+
+msgid "Paste your public HTTPS origin (ngrok or Cloudflare Tunnel)."
+msgstr "آدرس HTTPS عمومی را بگذارید (ngrok یا Cloudflare Tunnel)."
+
+msgid "Leave empty if this WordPress site is already public HTTPS."
+msgstr "اگر خود سایت وردپرس از قبل HTTPS عمومی است، خالی بگذارید."
+
+msgid "Only orders with a physical item."
+msgstr "فقط سفارش با کالای فیزیکی."
+
+msgid "Set carrier and number on the WooCommerce order or from the Telegram admin bot."
+msgstr "حامل و شماره را روی سفارش ووکامرس یا از ربات ادمین تلگرام بگذارید."
+
+msgid "Iran Post and Tipax open their official pages. Local courier has no tracking website."
+msgstr "پست ایران و تیپاکس صفحه رسمی را باز می‌کنند. پیک محلی سایت رهگیری ندارد."
+
+msgid "Carrier sites are not scraped."
+msgstr "از سایت حامل چیزی خوانده نمی‌شود."
+
+msgid "A separate Telegram message when tracking is saved needs the customer tracking checkbox under Bot notifications."
+msgstr "پیام جدا در تلگرام هنگام ذخیره فقط اگر تیک پیام رهگیری مشتری در اعلان‌های ربات روشن باشد."
+
+msgid "My orders and status messages can still show the number."
+msgstr "در سفارش‌های من و پیام تغییر وضعیت، شماره همچنان می‌تواند دیده شود."
+
+msgid "Show the WooCommerce default category (Uncategorized) in the bot category menu."
+msgstr "دسته پیش‌فرض ووکامرس (دسته‌بندی‌نشده) را در منوی دسته‌های ربات نشان بده."
+
+msgid "Products stay in the full catalog and search either way."
+msgstr "کالاها در هر دو حالت در فهرست همه محصولات و جستجو می‌مانند."
+
+msgid "This does not change the store website."
+msgstr "وب‌سایت فروشگاه عوض نمی‌شود."
+
+msgid "If the cart is only downloadable products with price 0, skip name, address, shipping and payment."
+msgstr "اگر سبد فقط کالای دانلودی با قیمت صفر باشد، نام، آدرس، ارسال و پرداخت رد می‌شود."
+
+msgid "Complete the WooCommerce order and send download links in the bot."
+msgstr "سفارش ووکامرس تکمیل می‌شود و لینک دانلود در ربات می‌آید."
+
+msgid "Product IDs"
+msgstr "شناسه محصول"
+
+msgid "Published simple or variable products."
+msgstr "محصول ساده یا متغیر منتشرشده."
+
+msgid "Separate IDs with a comma or a space."
+msgstr "شناسه‌ها را با ویرگول یا فاصله جدا کنید."
+
+msgid "Saves settings, then queues one job per product."
+msgstr "تنظیمات ذخیره می‌شود، بعد برای هر محصول یک کار در صف می‌رود."
+
+msgid "Existing channel posts are edited."
+msgstr "پست موجود ویرایش می‌شود."
+
+msgid "A new post is only sent when none is stored or the message is gone."
+msgstr "پست جدید فقط وقتی است که شناسه‌ای ذخیره نشده یا پیام در کانال نیست."
+
+msgid "Bale uses the same shop as Telegram (catalog, cart, my orders, admin)."
+msgstr "بله همان فروشگاه تلگرام را دارد (کاتالوگ، سبد، سفارش‌های من، ادمین)."
+
+msgid "Enable the bot, save the token, connect the webhook, then /start."
+msgstr "ربات را فعال کنید، توکن را ذخیره کنید، وب‌هوک را وصل کنید، بعد /start."
+
+msgid "Token is stored encrypted."
+msgstr "توکن رمزنگاری‌شده ذخیره می‌شود."
+
+msgid "Leave the masked value unchanged to keep the current token."
+msgstr "اگر مقدار ماسک‌شده را عوض نکنید، توکن فعلی می‌ماند."
+
+msgid "Optional. PHP calls to api.telegram.org (setWebhook, replies)."
+msgstr "اختیاری. تماس PHP به api.telegram.org (setWebhook و پاسخ‌ها)."
+
+msgid "Example: socks5://127.0.0.1:10808 for V2Ray."
+msgstr "مثال برای V2Ray: socks5://127.0.0.1:10808"
+
+msgid "Incoming webhooks still need public HTTPS."
+msgstr "وب‌هوک ورودی همچنان HTTPS عمومی می‌خواهد."
+
+msgid "For Iranian shared hosting: PHP cannot reach api.telegram.org and cannot use a local SOCKS proxy."
+msgstr "برای هاست اشتراکی ایران: PHP به api.telegram.org نمی‌رسد و SOCKS لوکال هم ندارد."
+
+msgid "Deploy the sample Cloudflare Worker in tools/cloudflare-telegram-relay.js and paste its HTTPS origin here."
+msgstr "Worker نمونه در tools/cloudflare-telegram-relay.js را دیپلوی کنید و آدرس HTTPS آن را اینجا بگذارید."
+
+msgid "This replaces api.telegram.org for outbound calls only."
+msgstr "فقط تماس خروجی جایگزین api.telegram.org می‌شود."
+
+msgid "Incoming webhooks still need a public HTTPS site URL."
+msgstr "وب‌هوک ورودی همچنان HTTPS عمومی سایت است."
+
+msgid "Numeric Telegram user IDs (comma-separated)."
+msgstr "شناسه عددی کاربر تلگرام (با ویرگول)."
+
+msgid "Those users see Orders in the bot."
+msgstr "همان کاربران در ربات سفارش‌ها را می‌بینند."
+
+msgid "They must send /start once so order alerts can be delivered."
+msgstr "یک‌بار /start بزنند تا اعلان سفارش برسد."
+
+msgid "Numeric Bale user IDs."
+msgstr "شناسه عددی کاربر بله."
+
+msgid "Same shop and admin order contract as Telegram."
+msgstr "همان فروشگاه و مدیریت سفارش تلگرام."
+
+msgid "Send /start in the Bale bot once for alerts."
+msgstr "یک‌بار در ربات بله /start بزنید تا اعلان برسد."
+
+msgid "Add the bot as admin."
+msgstr "ربات را ادمین کانال کنید."
+
+msgid "Price/stock changes post or edit using the caption fields on the General tab."
+msgstr "تغییر قیمت/موجودی با فیلدهای کپشن در تب عمومی پست یا ویرایش می‌شود."
+
+msgid "No AI."
+msgstr "بدون هوش مصنوعی."

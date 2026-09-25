@@ -8,6 +8,7 @@
 namespace StoreLink\Telegram;
 
 use StoreLink\Admin\SettingsStore;
+use StoreLink\Core\Log;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -76,6 +77,64 @@ class TelegramClient {
 	}
 
 	/**
+	 * Multipart file upload (sendDocument / sendAudio).
+	 *
+	 * @param array<string, mixed> $params Extra fields.
+	 * @return array<string, mixed>
+	 */
+	public function upload( string $method, array $params, string $field, string $path, string $filename = '' ): array {
+		if ( '' === $this->token || ! is_readable( $path ) ) {
+			return array( 'ok' => false, 'description' => 'missing_file' );
+		}
+
+		$url  = rtrim( $this->base_url, '/' ) . '/bot' . $this->token . '/' . ltrim( $method, '/' );
+		$name = '' !== $filename ? $filename : basename( $path );
+		$type = (string) ( wp_check_filetype( $name )['type'] ?? '' );
+		if ( '' === $type ) {
+			$type = 'application/octet-stream';
+		}
+
+		$params[ $field ] = curl_file_create( $path, $type, $name );
+
+		$handle = curl_init( $url );
+		if ( ! $handle ) {
+			return array( 'ok' => false, 'description' => 'curl_init' );
+		}
+
+		curl_setopt( $handle, CURLOPT_POST, true );
+		curl_setopt( $handle, CURLOPT_POSTFIELDS, $params );
+		curl_setopt( $handle, CURLOPT_RETURNTRANSFER, true );
+		curl_setopt( $handle, CURLOPT_TIMEOUT, 120 );
+		curl_setopt( $handle, CURLOPT_PROTOCOLS, CURLPROTO_HTTPS );
+		curl_setopt( $handle, CURLOPT_FOLLOWLOCATION, false );
+		curl_setopt( $handle, CURLOPT_SSL_VERIFYPEER, true );
+		curl_setopt( $handle, CURLOPT_SSL_VERIFYHOST, 2 );
+
+		$proxy = SettingsStore::telegram_proxy();
+		if ( '' !== $proxy ) {
+			if ( str_starts_with( strtolower( $proxy ), 'socks5' ) ) {
+				$host = (string) preg_replace( '/^socks5h?:\/\//i', '', $proxy );
+				curl_setopt( $handle, CURLOPT_PROXY, $host );
+				$type_proxy = defined( 'CURLPROXY_SOCKS5_HOSTNAME' ) ? CURLPROXY_SOCKS5_HOSTNAME : 7;
+				curl_setopt( $handle, CURLOPT_PROXYTYPE, $type_proxy );
+			} else {
+				curl_setopt( $handle, CURLOPT_PROXY, $proxy );
+			}
+		}
+
+		$body = curl_exec( $handle );
+		$err  = curl_error( $handle );
+		curl_close( $handle );
+
+		if ( false === $body ) {
+			return array( 'ok' => false, 'description' => $err );
+		}
+
+		$json = json_decode( (string) $body, true );
+		return is_array( $json ) ? $json : array( 'ok' => false, 'description' => 'bad_json' );
+	}
+
+	/**
 	 * @param array<string, mixed> $args wp_remote_request arguments.
 	 * @return array<string, mixed>
 	 */
@@ -92,7 +151,7 @@ class TelegramClient {
 		}
 
 		if ( is_wp_error( $response ) ) {
-			return array( 'ok' => false, 'description' => $response->get_error_message() );
+			return array( 'ok' => false, 'description' => Log::redact( $response->get_error_message() ) );
 		}
 
 		$body = json_decode( (string) wp_remote_retrieve_body( $response ), true );

@@ -317,19 +317,19 @@ class BotEngine {
 
 	private function menu( IncomingUpdate $update ): OutgoingMessage {
 		$row1 = array(
-			array( 'text' => __( 'Products', 'storelink' ) ),
-			array( 'text' => __( 'Categories', 'storelink' ) ),
+			array( 'text' => __( 'Products', 'storelink' ), 'data' => 'catalog' ),
+			array( 'text' => __( 'Categories', 'storelink' ), 'data' => 'cats' ),
 		);
 		$row2 = array(
-			array( 'text' => __( 'Cart', 'storelink' ) ),
-			array( 'text' => __( 'Search', 'storelink' ) ),
+			array( 'text' => __( 'Cart', 'storelink' ), 'data' => 'cart' ),
+			array( 'text' => __( 'Search', 'storelink' ), 'data' => 'search' ),
 		);
 		$row3 = array(
-			array( 'text' => __( 'My orders', 'storelink' ) ),
+			array( 'text' => __( 'My orders', 'storelink' ), 'data' => 'myorders' ),
 		);
 		$rows = array( $row1, $row2, $row3 );
 		if ( SettingsStore::is_admin_user( $update->user_id, $update->platform ) ) {
-			$rows[] = array( array( 'text' => __( 'Orders', 'storelink' ) ) );
+			$rows[] = array( array( 'text' => __( 'Orders', 'storelink' ), 'data' => 'admin' ) );
 		}
 
 		$welcome = __( 'Welcome to the store. Choose an option:', 'storelink' );

@@ -8,13 +8,13 @@ Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Connect WooCommerce to Telegram first. Other messengers plug in through the same gateway interface later.
+Connect WooCommerce to Telegram, Bale, and Rubika.
 
 == Description ==
 
-StoreLink connects a WooCommerce store to messenger bots. Telegram is the complete shop client in this version: browse and search products, cart quantities, checkout (WooCommerce order + payment URL), my orders, and store-ops for configured Telegram admin IDs (order list and status).
+StoreLink connects a WooCommerce store to messenger bots. Telegram, Bale, and Rubika share the same shop: browse and search products, cart quantities, checkout (WooCommerce order + payment URL), my orders, and store-ops for configured admin IDs.
 
-Bale uses a thin Telegram-compatible adapter. Eitaa, Rubika, and Instagram wait until the Telegram bot is the source of truth.
+Eitaa is not included yet: it has no inbound bot API.
 
 == Installation ==
 

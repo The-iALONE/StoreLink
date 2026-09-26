@@ -12,11 +12,13 @@
 - [Telegram setWebhook secret_token](https://core.telegram.org/bots/api#setwebhook)
 - [WC_Order::update_status()](https://woocommerce.github.io/code-reference/classes/WC-Order.html#method_update_status)
 - [wc_get_orders()](https://github.com/woocommerce/woocommerce/wiki/wc_get_orders-and-WC_Order_Query)
-- [Bale Bot API](https://docs.bale.ai/) (`https://tapi.bale.ai`) — clone after Telegram shop is complete
+- [Bale Bot API](https://docs.bale.ai/) (`https://tapi.bale.ai`)
+- [Rubika Bot API](https://rubika.ir/botapi), [methods](https://rubika.ir/botapi/methods), [models](https://rubika.ir/botapi/models), [groups/channels](https://rubika.ir/botapi/group-channel) (`https://botapi.rubika.ir`)
 - Market (comment gaps, not to clone wholesale): [Boti](https://www.rtl-theme.com/boti-wordpress-plugin/), [Woojox](https://www.zhaket.com/web/wojoox-plugin), [Balegram](https://www.rtl-theme.com/balegram-plugin-wordpress/)
-- Later: Instagram Graph API, Rubika, Eitaa, Soroush Plus
+- Later: Instagram Graph API, Eitaa (no inbound bot), Soroush Plus
 - M22 tracking pages: [Iran Post tracking](https://tracking.post.ir), [Tipax tracking](https://tipaxco.com/tracking). No scrape. Extra carriers: `storelink_register_tracking_providers`.
 - M24: WooCommerce → StoreLink notification checkboxes. Defaults match M14/M18.
 - M25: channel caption fields + Action Scheduler bulk publish (`as_enqueue_async_action`, group `storelink`). No AI.
 - M26: StoreLink settings tabs (General / Telegram / Bale). One location per setting.
+- M27: Telegram shop parity on Bale and Rubika. Tracking notify uses `_storelink_platform`. Rubika `updateBotEndpoints` with types `ReceiveUpdate` and `ReceiveInlineMessage`; posts to `/webhooks/rubika/{secret}/ReceiveUpdate`.
 - [WordPress Requirements (PHP 8.3+)](https://wordpress.org/about/requirements/)

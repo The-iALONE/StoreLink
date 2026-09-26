@@ -12,7 +12,7 @@
 
 ## Telegram first
 
-Shopping and store-ops live in `BotEngine`. Telegram and Bale share that contract (`BaleGateway` is a Telegram-compatible adapter). Eitaa, Rubika, and Instagram wait until this contract is stable.
+Shopping and store-ops live in `BotEngine`. Telegram, Bale, and Rubika share that contract. Eitaa waits until it exposes an inbound bot API.
 
 ## Layers
 
@@ -25,8 +25,8 @@ Shopping and store-ops live in `BotEngine`. Telegram and Bale share that contrac
 | OrderNotifier | New-order and optional status alerts to admin chats; buyer status, refunded, shipped, tracking gated by settings |
 | Session / Customer repositories | Chat state and identities |
 | TokenVault | Encrypt bot tokens at rest |
-| Admin settings | Tabs: General (shared), Telegram, Bale (connection). Tokens, webhook, public HTTPS base, SOCKS proxy, HTTPS API relay, admin user IDs |
-| ChannelPublisherInterface | Plain channel posts; `MessengerChannelPublisher` for Telegram/Bale; `ChannelPublishQueue` for bulk |
+| Admin settings | Tabs: General (shared), Telegram, Bale, Rubika (connection). Tokens, webhook, public HTTPS base, SOCKS proxy, HTTPS API relay (Telegram only), admin user IDs |
+| ChannelPublisherInterface | Plain channel posts; `MessengerChannelPublisher` for Telegram/Bale/Rubika; `ChannelPublishQueue` for bulk |
 
 ## Telegram flow
 
@@ -57,18 +57,21 @@ admin Queue publish
   → ChannelPublishQueue::run
 ```
 
-Outbound PHP → `api.telegram.org` may use SOCKS/HTTP proxy (V2Ray) or an HTTPS relay (`telegram_relay`, e.g. Cloudflare Worker). Inbound webhooks still need public HTTPS. Test with settings `getMe`.
+Outbound PHP → `api.telegram.org` may use SOCKS/HTTP proxy (V2Ray) or an HTTPS relay (`telegram_relay`, e.g. Cloudflare Worker). Inbound webhooks still need public HTTPS. Test with settings `getMe` on each messenger tab.
+
+Webhook POST `/storelink/v1/webhooks/rubika/{secret}/ReceiveUpdate` (and `ReceiveInlineMessage`) → `RubikaGateway::parse_update` → `BotEngine`. Register with `updateBotEndpoints`, not Telegram `setWebhook`.
 
 ## Extension hooks
 
 - `storelink_register_gateways`
 - `storelink_telegram_api_base` (default Telegram)
 - `storelink_bale_api_base` (Bale: `https://tapi.bale.ai`)
+- `storelink_rubika_api_base` (Rubika: `https://botapi.rubika.ir`)
 - `storelink_product_changed` (`WC_Product`, reason)
 - `ChannelPublisherInterface::publish_product` / `update_post`
 - `storelink_register_tracking_providers`
 
-Shipment tracking (M22) lives on WooCommerce order meta (`_storelink_tracking_*`). Carriers implement `ProviderInterface` (manual courier, Iran Post, Tipax). Iran Post and Tipax only return an official HTTPS tracking page; they do not scrape status. WP-Cron `storelink_refresh_tracking` runs hourly but skips providers with `can_refresh() === false`. Saving a number notifies the Telegram buyer chat when `_storelink_platform` is `telegram`.
+Shipment tracking (M22) lives on WooCommerce order meta (`_storelink_tracking_*`). Carriers implement `ProviderInterface` (manual courier, Iran Post, Tipax). Iran Post and Tipax only return an official HTTPS tracking page; they do not scrape status. WP-Cron `storelink_refresh_tracking` runs hourly but skips providers with `can_refresh() === false`. Saving a number notifies the buyer chat on the messenger stored in `_storelink_platform`.
 
 ## Not in M0–M21
 

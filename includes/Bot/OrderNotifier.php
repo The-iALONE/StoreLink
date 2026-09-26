@@ -234,7 +234,7 @@ class OrderNotifier {
 		}
 
 		$platform = sanitize_key( (string) $wc_order->get_meta( '_storelink_platform' ) );
-		if ( 'telegram' !== $platform ) {
+		if ( '' === $platform || ! SettingsStore::is_enabled( $platform ) ) {
 			return;
 		}
 

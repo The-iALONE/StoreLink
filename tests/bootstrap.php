@@ -14,6 +14,18 @@ if ( ! defined( 'MINUTE_IN_SECONDS' ) ) {
 
 $root = dirname( __DIR__ );
 
+if ( ! function_exists( 'sanitize_text_field' ) ) {
+	function sanitize_text_field( $value ) {
+		return trim( strip_tags( (string) $value ) );
+	}
+}
+
+if ( ! function_exists( '__' ) ) {
+	function __( $text, $domain = '' ) {
+		return $text;
+	}
+}
+
 if ( file_exists( $root . '/vendor/autoload.php' ) ) {
 	require_once $root . '/vendor/autoload.php';
 }

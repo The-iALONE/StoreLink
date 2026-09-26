@@ -37,6 +37,7 @@
 - [x] M24 — Notification toggles, split by customer vs store admin. Keep today’s M14 new-order alert and M18 status message as the defaults. Extra events (refunded as its own template, shipped, tracking added) stay off until enabled.
 - [x] M25 — Channel controls beyond the M21 plain post: optional short description, which fields are included, and manual publish of selected products or one category. Bulk jobs use Action Scheduler. No AI captions.
 - [x] M26 — StoreLink settings tabs: General, Telegram, Bale. Shared options live only on General. Each messenger tab is connection only. No inheritance.
+- [x] M27 — Telegram shop parity on Bale (tracking notify + getMe) and Rubika (`RubikaGateway`). Eitaa has no inbound bot API yet.
 
 Local login and ngrok: [LOCAL.md](LOCAL.md)
 
@@ -60,9 +61,9 @@ Do not copy full competitor catalogs. Close comment-thread pain that stops a pur
 
 **Why Boti sells and still scores 76%:** in-chat checkout + Bale Pay. Gaps in comments: Telegram blocked on IR hosts, no seller ping in Bale after paid order (until they added more notifies), digital goods were “coming later”, order status not pushed to the buyer, shipping/city/variations/coupons missing until 1.1.0. StoreLink now covers Telegram shop + admin alerts, IR-host relay, WC statuses to the buyer, digital download links, Bale on the same shop contract, channel posts with caption fields, and Action Scheduler bulk publish. Still later: Bale Pay, force-join, broadcasts.
 
-## Later (after M22–M25)
+## Later (after M27)
 
-Rubika, Eitaa, Soroush Plus, Bale Pay, force-join, abandoned cart, broadcasts. AI captions stay after the plain channel post. Do not start those, and do not start M22–M25, until that milestone is the active task. M0–M21 are closed. API, webhook, and channel failures already go to WooCommerce → Status → Logs, source `storelink`, with tokens redacted. There is no separate log page.
+Eitaa (no inbound bot yet; EitaaYar is channel send only), Soroush Plus, Bale Pay, force-join, abandoned cart, broadcasts. AI captions stay after the plain channel post. Do not start those until that milestone is the active task. API, webhook, and channel failures already go to WooCommerce → Status → Logs, source `storelink`, with tokens redacted. There is no separate log page.
 
 ## PHP Note
 

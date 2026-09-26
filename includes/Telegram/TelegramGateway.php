@@ -373,7 +373,13 @@ class TelegramGateway implements GatewayInterface {
 
 		return array(
 			'ok'       => true,
-			'text'     => $username ? '@' . $username : __( 'Telegram API is reachable.', 'storelink' ),
+			'text'     => $username
+				? '@' . $username
+				: sprintf(
+					/* translators: %s: messenger name */
+					__( '%s API is reachable.', 'storelink' ),
+					$this->label()
+				),
 			'username' => $username,
 		);
 	}

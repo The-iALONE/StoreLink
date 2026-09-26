@@ -25,19 +25,22 @@ $tab       = SettingsPage::sanitize_tab( isset( $_GET['tab'] ) ? wp_unslash( $_G
 $labels    = array(
 	'telegram' => __( 'Telegram', 'storelink' ),
 	'bale'     => __( 'Bale', 'storelink' ),
+	'rubika'   => __( 'Rubika', 'storelink' ),
 );
 $error     = ( $notice_pl && ! empty( $settings[ $notice_pl . '_webhook_error' ] ) )
 	? (string) $settings[ $notice_pl . '_webhook_error' ]
 	: '';
 $tabs      = array(
-	'general'  => __( 'General', 'storelink' ),
-	'telegram' => $labels['telegram'],
-	'bale'     => $labels['bale'],
+	'general' => __( 'General', 'storelink' ),
 );
+foreach ( SettingsStore::platforms() as $platform_id ) {
+	$tabs[ $platform_id ] = $labels[ $platform_id ] ?? $platform_id;
+}
+$probe_text = (string) ( $settings[ $tab . '_probe_text' ] ?? '' );
 ?>
 <div class="wrap storelink-settings">
 	<h1><?php echo esc_html__( 'StoreLink', 'storelink' ); ?></h1>
-	<p><?php echo esc_html__( 'Connect WooCommerce to Telegram and Bale. Other messengers can be added through the gateway interface.', 'storelink' ); ?></p>
+	<p><?php echo esc_html__( 'Connect WooCommerce to Telegram, Bale, and Rubika. Other messengers can be added through the gateway interface.', 'storelink' ); ?></p>
 
 	<?php if ( $saved ) : ?>
 		<div class="notice notice-success"><p><?php echo esc_html__( 'Settings saved.', 'storelink' ); ?></p></div>
@@ -59,9 +62,9 @@ $tabs      = array(
 	<?php endif; ?>
 
 	<?php if ( '1' === $test ) : ?>
-		<div class="notice notice-success"><p><?php echo esc_html( (string) $settings['telegram_probe_text'] ); ?></p></div>
+		<div class="notice notice-success"><p><?php echo esc_html( $probe_text ); ?></p></div>
 	<?php elseif ( '0' === $test ) : ?>
-		<div class="notice notice-error"><p><?php echo esc_html( (string) $settings['telegram_probe_text'] ); ?></p></div>
+		<div class="notice notice-error"><p><?php echo esc_html( $probe_text ); ?></p></div>
 	<?php endif; ?>
 
 	<form id="storelink-settings-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">

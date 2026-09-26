@@ -1,6 +1,6 @@
 <?php
 /**
- * Plain product posts on Telegram or Bale channels.
+ * Plain product posts on Telegram, Bale, or Rubika channels.
  *
  * @package StoreLink
  */
@@ -9,7 +9,6 @@ namespace StoreLink\Publishing;
 
 use StoreLink\Admin\SettingsStore;
 use StoreLink\Messengers\GatewayRegistry;
-use StoreLink\Telegram\TelegramGateway;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -168,8 +167,15 @@ class MessengerChannelPublisher implements ChannelPublisherInterface {
 		return substr( $text, 0, 1024 );
 	}
 
-	private function gateway(): ?TelegramGateway {
+	/**
+	 * @return object{send_channel_post: callable, edit_channel_outcome: callable}|null
+	 */
+	private function gateway() {
 		$gateway = GatewayRegistry::instance()->get( $this->platform );
-		return $gateway instanceof TelegramGateway ? $gateway : null;
+		if ( ! $gateway || ! method_exists( $gateway, 'send_channel_post' ) || ! method_exists( $gateway, 'edit_channel_outcome' ) ) {
+			return null;
+		}
+
+		return $gateway;
 	}
 }

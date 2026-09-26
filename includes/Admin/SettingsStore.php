@@ -22,7 +22,7 @@ class SettingsStore {
 	 * @return array<int, string>
 	 */
 	public static function platforms(): array {
-		return array( 'telegram', 'bale' );
+		return array( 'telegram', 'bale', 'rubika' );
 	}
 
 	/**
@@ -30,13 +30,9 @@ class SettingsStore {
 	 */
 	public static function get(): array {
 		$defaults = array(
-			'webhook_public_base'  => '',
-			'telegram_proxy'       => '',
-			'telegram_relay'       => '',
-			'telegram_probe_ok'    => false,
-			'telegram_probe_text'  => '',
-			'telegram_admin_ids'   => '',
-			'telegram_admin_chats' => array(),
+			'webhook_public_base' => '',
+			'telegram_proxy'      => '',
+			'telegram_relay'      => '',
 		);
 
 		foreach ( self::platforms() as $platform ) {
@@ -46,12 +42,12 @@ class SettingsStore {
 			$defaults[ $platform . '_username' ]      = '';
 			$defaults[ $platform . '_webhook_ok' ]    = false;
 			$defaults[ $platform . '_webhook_error' ] = '';
+			$defaults[ $platform . '_admin_ids' ]     = '';
+			$defaults[ $platform . '_admin_chats' ]   = array();
+			$defaults[ $platform . '_channel_id' ]    = '';
+			$defaults[ $platform . '_probe_ok' ]      = false;
+			$defaults[ $platform . '_probe_text' ]    = '';
 		}
-
-		$defaults['bale_admin_ids']      = '';
-		$defaults['bale_admin_chats']    = array();
-		$defaults['telegram_channel_id'] = '';
-		$defaults['bale_channel_id']     = '';
 		$defaults['free_download_skip_checkout'] = true;
 		$defaults['bot_show_uncategorized']      = true;
 		$defaults['notify_admin_new_order']      = true;
@@ -195,12 +191,13 @@ class SettingsStore {
 		$current = self::get();
 
 		$current['webhook_public_base'] = self::sanitize_public_base( (string) ( $data['webhook_public_base'] ?? $current['webhook_public_base'] ) );
-		$current['telegram_proxy']      = self::sanitize_proxy( (string) ( $data['telegram_proxy'] ?? $current['telegram_proxy'] ) );
-		$current['telegram_relay']      = self::sanitize_relay( (string) ( $data['telegram_relay'] ?? $current['telegram_relay'] ) );
-		$current['telegram_admin_ids']  = sanitize_text_field( (string) ( $data['telegram_admin_ids'] ?? $current['telegram_admin_ids'] ) );
-		$current['bale_admin_ids']      = sanitize_text_field( (string) ( $data['bale_admin_ids'] ?? $current['bale_admin_ids'] ) );
-		$current['telegram_channel_id'] = sanitize_text_field( (string) ( $data['telegram_channel_id'] ?? $current['telegram_channel_id'] ) );
-		$current['bale_channel_id']     = sanitize_text_field( (string) ( $data['bale_channel_id'] ?? $current['bale_channel_id'] ) );
+		$current['telegram_proxy'] = self::sanitize_proxy( (string) ( $data['telegram_proxy'] ?? $current['telegram_proxy'] ) );
+		$current['telegram_relay'] = self::sanitize_relay( (string) ( $data['telegram_relay'] ?? $current['telegram_relay'] ) );
+
+		foreach ( self::platforms() as $platform ) {
+			$current[ $platform . '_admin_ids' ]  = sanitize_text_field( (string) ( $data[ $platform . '_admin_ids' ] ?? $current[ $platform . '_admin_ids' ] ) );
+			$current[ $platform . '_channel_id' ] = sanitize_text_field( (string) ( $data[ $platform . '_channel_id' ] ?? $current[ $platform . '_channel_id' ] ) );
+		}
 		$current['free_download_skip_checkout'] = ! empty( $data['free_download_skip_checkout'] );
 		$current['bot_show_uncategorized']      = ! empty( $data['bot_show_uncategorized'] );
 		$current['notify_admin_new_order']      = ! empty( $data['notify_admin_new_order'] );

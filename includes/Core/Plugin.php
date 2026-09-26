@@ -16,6 +16,7 @@ use StoreLink\Messengers\GatewayRegistry;
 use StoreLink\Publishing\ChannelPublishQueue;
 use StoreLink\Publishing\ProductChangeHooks;
 use StoreLink\REST\RestBootstrap;
+use StoreLink\Rubika\RubikaGateway;
 use StoreLink\Telegram\TelegramGateway;
 use StoreLink\Tracking\IranPost;
 use StoreLink\Tracking\ManualCourier;
@@ -96,6 +97,7 @@ final class Plugin {
 		$registry = GatewayRegistry::instance();
 		$registry->register( new TelegramGateway() );
 		$registry->register( new BaleGateway() );
+		$registry->register( new RubikaGateway() );
 		do_action( 'storelink_register_gateways', $registry );
 	}
 

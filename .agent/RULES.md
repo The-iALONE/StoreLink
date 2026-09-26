@@ -8,7 +8,10 @@ Before starting any task, read the relevant official documentation.
 2. Read WooCommerce Code Reference for product and order APIs.
 3. Read REST API Handbook for endpoint changes.
 4. Read Telegram Bot API for webhook, secret_token, and inline keyboards.
-5. Log which docs were consulted in task notes or commit messages.
+5. Read the current [Bale Bot API](https://docs.bale.ai/) before changing Bale (`https://tapi.bale.ai`).
+6. Read the current [Rubika Bot API](https://rubika.ir/botapi) and [methods](https://rubika.ir/botapi/methods) before changing Rubika (`https://botapi.rubika.ir`). Use official method names and enums (`updateBotEndpoints` with `ReceiveUpdate` / `ReceiveInlineMessage`). Do not copy Telegram `setWebhook` onto Rubika.
+7. If Bale or Rubika docs cannot be opened or a field is missing from the public pages, stop and ask the user to send the official page or PDF. Do not guess the API.
+8. Log which docs were consulted in task notes or commit messages.
 
 ## WordPress Core (Strict)
 
@@ -27,7 +30,7 @@ Before starting any task, read the relevant official documentation.
 - Public webhook endpoints must verify the messenger secret; reject otherwise.
 - Bot tokens are encrypted at rest and never logged or sent to JavaScript.
 - Add messengers only by implementing `GatewayInterface` and registering on `storelink_register_gateways`.
-- Complete Telegram shop/admin in `BotEngine` before extra Bale/Eitaa/Rubika/Instagram features.
+- Complete Telegram shop/admin in `BotEngine`; extra messengers only as gateways that translate the same contract. Consult that messenger's official docs first.
 - Paginate catalog queries — never load the entire catalog into memory.
 - Always re-read price and stock from WooCommerce at order time.
 - Do not collect card data or take payment inside the bot. Use WooCommerce checkout payment URL.

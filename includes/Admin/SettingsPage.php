@@ -49,8 +49,9 @@ class SettingsPage {
 			$this->redirect_connect( $connect );
 		}
 
-		if ( ! empty( $_POST['storelink_test_telegram'] ) ) {
-			$this->redirect_test();
+		$test_platform = sanitize_key( (string) ( $_POST['storelink_test_connection'] ?? '' ) );
+		if ( '' !== $test_platform ) {
+			$this->redirect_test( $test_platform );
 		}
 
 		if ( ! empty( $_POST['storelink_channel_publish'] ) ) {
@@ -98,22 +99,26 @@ class SettingsPage {
 		exit;
 	}
 
-	private function redirect_test(): void {
-		$gateway = GatewayRegistry::instance()->get( 'telegram' );
+	private function redirect_test( string $platform ): void {
+		if ( ! in_array( $platform, SettingsStore::platforms(), true ) ) {
+			$platform = 'telegram';
+		}
+
+		$gateway = GatewayRegistry::instance()->get( $platform );
 		$ping    = ( $gateway && method_exists( $gateway, 'ping' ) )
 			? $gateway->ping()
 			: array(
 				'ok'       => false,
-				'text'     => __( 'Telegram gateway is not registered.', 'storelink' ),
+				'text'     => __( 'This messenger is not registered.', 'storelink' ),
 				'username' => '',
 			);
 
 		$patch = array(
-			'telegram_probe_ok'   => ! empty( $ping['ok'] ),
-			'telegram_probe_text' => (string) ( $ping['text'] ?? '' ),
+			$platform . '_probe_ok'   => ! empty( $ping['ok'] ),
+			$platform . '_probe_text' => (string) ( $ping['text'] ?? '' ),
 		);
 		if ( ! empty( $ping['username'] ) ) {
-			$patch['telegram_username'] = (string) $ping['username'];
+			$patch[ $platform . '_username' ] = (string) $ping['username'];
 		}
 		SettingsStore::update( $patch );
 
@@ -121,7 +126,7 @@ class SettingsPage {
 			add_query_arg(
 				array(
 					'page'           => 'storelink',
-					'tab'            => 'telegram',
+					'tab'            => $platform,
 					'storelink_test' => ! empty( $ping['ok'] ) ? '1' : '0',
 				),
 				admin_url( 'admin.php' )

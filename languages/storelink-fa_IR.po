@@ -712,3 +712,42 @@ msgstr "تغییر قیمت/موجودی با فیلدهای کپشن در تب 
 
 msgid "No AI."
 msgstr "بدون هوش مصنوعی."
+
+msgid "Rubika"
+msgstr "روبیکا"
+
+msgid "Connect WooCommerce to Telegram, Bale, and Rubika. Other messengers can be added through the gateway interface."
+msgstr "ووکامرس را به تلگرام، بله و روبیکا وصل کنید. پیام‌رسان دیگر از همین رابط gateway اضافه می‌شود."
+
+msgid "%s uses the same shop as Telegram (catalog, cart, my orders, admin)."
+msgstr "%s همان فروشگاه تلگرام را دارد (کاتالوگ، سبد، سفارش‌های من، ادمین)."
+
+msgid "This messenger is not registered."
+msgstr "این پیام‌رسان ثبت نشده است."
+
+msgid "%s API is reachable."
+msgstr "API %s در دسترس است."
+
+msgid "Test API"
+msgstr "تست API"
+
+msgid "Test getMe"
+msgstr "تست getMe"
+
+msgid "%s admin user IDs"
+msgstr "شناسه ادمین %s"
+
+msgid "Rubika user IDs from /start (they look like u…)."
+msgstr "شناسه کاربر روبیکا از /start (معمولاً با u شروع می‌شود)."
+
+msgid "Numeric %s user IDs (comma-separated)."
+msgstr "شناسه عددی کاربر %s (با ویرگول)."
+
+msgid "%s channel"
+msgstr "کانال %s"
+
+msgid "Rubika only accepts a public HTTPS webhook. Local http:// URLs are rejected. Use a tunnel such as ngrok and set the public webhook base URL."
+msgstr "روبیکا فقط وب‌هوک HTTPS عمومی می‌پذیرد. آدرس http محلی رد می‌شود. از تونل مثل ngrok و آدرس پایه وب‌هوک استفاده کنید."
+
+msgid "Rubika rejects webhook URLs with a query string. Set Public webhook base URL to HTTPS and use pretty permalinks so the address uses /wp-json/."
+msgstr "روبیکا URL وب‌هوک با query string را رد می‌کند. آدرس پایه HTTPS و پیوندهای یکتا را طوری بگذارید که مسیر /wp-json/ باشد."

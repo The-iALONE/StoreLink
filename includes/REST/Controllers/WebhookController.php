@@ -40,6 +40,33 @@ class WebhookController {
 				),
 			)
 		);
+
+		$rubika = array(
+			'methods'             => WP_REST_Server::CREATABLE,
+			'callback'            => array( $this, 'handle_rubika' ),
+			'permission_callback' => '__return_true',
+			'args'                => array(
+				'secret' => array(
+					'type' => 'string',
+				),
+			),
+		);
+
+		register_rest_route(
+			self::NAMESPACE,
+			'/webhooks/rubika/(?P<secret>[A-Za-z0-9_-]+)',
+			$rubika
+		);
+		register_rest_route(
+			self::NAMESPACE,
+			'/webhooks/rubika/(?P<secret>[A-Za-z0-9_-]+)/(?P<kind>receiveUpdate|ReceiveUpdate|receiveInlineMessage|ReceiveInlineMessage)',
+			$rubika
+		);
+	}
+
+	public function handle_rubika( WP_REST_Request $request ) {
+		$request->set_param( 'platform', 'rubika' );
+		return $this->handle( $request );
 	}
 
 	public function handle( WP_REST_Request $request ) {
@@ -54,11 +81,24 @@ class WebhookController {
 			return new \WP_REST_Response( array( 'ok' => false ), 403 );
 		}
 
-		$update = $gateway->parse_update( $request->get_json_params() );
+		$update = $gateway->parse_update( $this->payload( $request ) );
 		if ( $update ) {
 			( new BotEngine() )->handle( $update, $gateway );
 		}
 
 		return new \WP_REST_Response( array( 'ok' => true ), 200 );
+	}
+
+	/**
+	 * @return array<string, mixed>
+	 */
+	private function payload( WP_REST_Request $request ): array {
+		$params = $request->get_json_params();
+		if ( is_array( $params ) && array() !== $params ) {
+			return $params;
+		}
+
+		$decoded = json_decode( (string) $request->get_body(), true );
+		return is_array( $decoded ) ? $decoded : array();
 	}
 }

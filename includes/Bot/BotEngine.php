@@ -79,6 +79,20 @@ class BotEngine {
 			return $this->menu( $update );
 		}
 
+		if ( 'cart_qty' === ( $session['state'] ?? '' ) ) {
+			$qty_text = '' !== $text ? $text : $data;
+			if ( null !== $this->parse_nonneg_int( $qty_text ) ) {
+				return $this->cart_qty_set( $update, $session, $qty_text );
+			}
+		}
+
+		if ( 'admin_stock_qty' === ( $session['state'] ?? '' ) ) {
+			$qty_text = '' !== $text ? $text : $data;
+			if ( null !== $this->parse_nonneg_int( $qty_text ) ) {
+				return $this->admin_stock_set( $update, $session, $qty_text );
+			}
+		}
+
 		if ( $this->is_cmd( $text, __( 'Products', 'storelink' ), '/products' ) || 'catalog' === $data ) {
 			$session['state']    = 'menu';
 			$session['search_q'] = '';
@@ -294,11 +308,11 @@ class BotEngine {
 			return $this->admin_track_save( $update, $session, $text );
 		}
 
-		if ( 'admin_stock_qty' === ( $session['state'] ?? '' ) && 'message' === $update->type && '' !== $text ) {
+		if ( 'admin_stock_qty' === ( $session['state'] ?? '' ) && '' !== $text ) {
 			return $this->admin_stock_set( $update, $session, $text );
 		}
 
-		if ( 'cart_qty' === ( $session['state'] ?? '' ) && 'message' === $update->type && '' !== $text ) {
+		if ( 'cart_qty' === ( $session['state'] ?? '' ) && '' !== $text ) {
 			return $this->cart_qty_set( $update, $session, $text );
 		}
 
@@ -1157,19 +1171,41 @@ class BotEngine {
 	}
 
 	private function parse_nonneg_int( string $text ): ?int {
-		$map = array(
-			'۰' => '0', '۱' => '1', '۲' => '2', '۳' => '3', '۴' => '4',
-			'۵' => '5', '۶' => '6', '۷' => '7', '۸' => '8', '۹' => '9',
-			'٠' => '0', '١' => '1', '٢' => '2', '٣' => '3', '٤' => '4',
-			'٥' => '5', '٦' => '6', '٧' => '7', '٨' => '8', '٩' => '9',
-		);
-		$digits = strtr( trim( $text ), $map );
-		$digits = preg_replace( '/\s+/', '', $digits );
-		if ( ! is_string( $digits ) || ! preg_match( '/^\d+$/', $digits ) ) {
+		$digits = $this->normalize_digits( $text );
+		if ( '' === $digits || strlen( $digits ) > 9 ) {
 			return null;
 		}
 
 		return (int) $digits;
+	}
+
+	private function normalize_digits( string $text ): string {
+		$map = array(
+			'۰' => '0',
+			'۱' => '1',
+			'۲' => '2',
+			'۳' => '3',
+			'۴' => '4',
+			'۵' => '5',
+			'۶' => '6',
+			'۷' => '7',
+			'۸' => '8',
+			'۹' => '9',
+			'٠' => '0',
+			'١' => '1',
+			'٢' => '2',
+			'٣' => '3',
+			'٤' => '4',
+			'٥' => '5',
+			'٦' => '6',
+			'٧' => '7',
+			'٨' => '8',
+			'٩' => '9',
+		);
+		$digits = strtr( trim( $text ), $map );
+		$digits = preg_replace( '/[^\d]/u', '', $digits );
+
+		return is_string( $digits ) ? $digits : '';
 	}
 
 	/**
